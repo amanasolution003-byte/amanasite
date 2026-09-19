@@ -1,0 +1,57 @@
+/* Arabic Right-to-Left Layout Adjustments */
+html[dir="ar"] .navbar .nav-links {
+    float: right;
+    margin-left: 0;
+    margin-right: auto;
+}
+
+html[dir="ar"] .language-selector {
+    left: 20px;
+    right: auto;
+}
+
+html[dir="ar"] .about-content {
+    grid-template-columns: 1fr;
+    direction: rtl;
+}
+
+html[dir="ar"] .services-grid,
+html[dir="ar"] .portfolio-grid {
+    direction: rtl;
+}
+
+html[dir="ar"] .contact-content {
+    direction: rtl;
+}
+
+html[dir="ar"] .footer-content {
+    direction: rtl;
+}
+
+html[dir="ar"] .contact-item .contact-value {
+    text-align: right;
+}
+
+html[dir="ar"] .hero-title {
+    text-align: right;
+}
+
+html[dir="ar"] blockquote,
+html[dir="ar"] q {
+    direction: rtl;
+}
+
+/* Arabic specific adjustments */
+html[dir="ar"] .about-image {
+    order: -1;
+    text-align: right;
+}
+
+html[dir="ar"] .contact-form {
+    direction: rtl;
+}
+
+html[dir="ar"] .contact-form input,
+html[dir="ar"] .contact-form textarea {
+    text-align: right;
+}

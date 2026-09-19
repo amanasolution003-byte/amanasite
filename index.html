@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amana-Solution - Création de Sites Web et Solutions ERP/CRM</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/arabic.css" media="screen and (direction: rtl)">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Noto+Naskh+Arabic:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Language Selector -->
+    <div class="language-selector" id="languageSelector">
+        <button class="lang-btn active" data-lang="fr" onclick="switchLanguage('fr')">FR</button>
+        <button class="lang-btn" data-lang="ar" onclick="switchLanguage('ar')">AR</button>
+        <button class="lang-btn" data-lang="en" onclick="switchLanguage('en')">EN</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">Amana-Solution</div>
+        <ul class="nav-links">
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title" id="heroTitle" data-i18n="heroTitle">Création de Sites Web<br>et Solutions Digitales</h1>
+            <p class="hero-subtitle" id="heroSubtitle" data-i18n="heroSubtitle">Des solutions sur mesure pour les PME : sites web, CRM, ERP et automatisation</p>
+            <a href="#contact" class="cta-btn" id="ctaBtn" data-i18n="ctaBtn">Discutons de votre projet</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" id="aboutTitle" data-i18n="aboutTitle">À propos de nous</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text" id="aboutText">
+                    <p id="aboutPara1" data-i18n="aboutPara1">Amana-Solution accompagne les petites et moyennes entreprises dans leur transformation digitale. Nous créons des sites web modernes, des solutions CRM et ERP sur mesure, et nous automatisons vos processus pour optimiser votre productivité.</p>
+                    <p id="aboutPara2" data-i18n="aboutPara2">Notre équipe combine expertise technique et compréhension des besoins business pour livrer des solutions qui génèrent de la valeur.</p>
+                </div>
+                <div class="about-image">
+                    <div class="image-placeholder" id="imagePlaceholder">
+                        <img src="img/logo.svg" alt="Amana-Solution Logo" class="logo-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" id="servicesTitle" data-i18n="servicesTitle">Nos Services</h2>
+            </div>
+            <div class="services-grid" id="servicesGrid">
+                <!-- Services will be inserted by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" id="portfolioTitle" data-i18n="portfolioTitle">Nos Projets</h2>
+            </div>
+            <div class="portfolio-grid" id="portfolioGrid">
+                <!-- Portfolio items will be inserted by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" id="contactTitle" data-i18n="contactTitle">Contactez-nous</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info" id="contactInfo">
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-detail">
+                            <h3 class="contact-label" id="contactLabelPhone" data-i18n="contactLabelPhone">Téléphone</h3>
+                            <p class="contact-value" id="contactPhone" data-i18n="contactPhone">+216 55 123 456</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-detail">
+                            <h3 class="contact-label" id="contactLabelEmail" data-i18n="contactLabelEmail">Email</h3>
+                            <p class="contact-value" id="contactEmail" data-i18n="contactEmail">info@amana-solution.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-detail">
+                            <h3 class="contact-label" id="contactLabelAddress" data-i18n="contactLabelAddress">Adresse</h3>
+                            <p class="contact-value" id="contactAddress" data-i18n="contactAddress">Tunisie</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Votre nom" required id="formName" data-i18n="formName">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Votre email" required id="formEmail" data-i18n="formEmail">
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Votre message" required id="formMessage" data-i18n="formMessage"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit" id="formSubmit" data-i18n="formSubmit">Envoyer le message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3 data-i18n="footerBrand">Amana-Solution</h3>
+                    <p data-i18n="footerDesc">Création de sites web et solutions digitales pour PME</p>
+                </div>
+                <ul class="footer-links">
+                    <li><a href="#about" data-i18n="footerAbout">À propos</a></li>
+                    <li><a href="#services" data-i18n="footerServices">Services</a></li>
+                    <li><a href="#portfolio" data-i18n="footerPortfolio">Portfolio</a></li>
+                    <li><a href="#contact" data-i18n="footerContact">Contact</a></li>
+                </ul>
+                <div class="footer-social">
+                    <a href="#" target="_blank" aria-label="LinkedIn" data-i18n="footerSocialLabel">LinkedIn</a>
+                    <a href="#" target="_blank" aria-label="GitHub" data-i18n="footerSocialLabel">GitHub</a>
+                    <a href="#" target="_blank" aria-label="Twitter" data-i18n="footerSocialLabel">Twitter</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footerCopyright">2026 Amana-Solution. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
