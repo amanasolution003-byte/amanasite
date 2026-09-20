@@ -189,4 +189,32 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+}
+
+// Toggle mobile navigation
+function toggleNav() {
+    const mobileNav = document.getElementById('mobileNav');
+    const hamburger = document.getElementById('hamburger');
+    
+    mobileNav.classList.toggle('active');
+    hamburger.classList.toggle('active');
+    
+    // Prevent body scrolling when menu is open
+    if (mobileNav.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
+}
+
+// Close mobile nav when a link is clicked
+document.querySelectorAll('.mobile a').forEach(link => {
+    link.addEventListener('click', () => {
+        const mobileNav = document.getElementById('mobileNav');
+        const hamburger = document.getElementById('hamburger');
+        
+        mobileNav.classList.remove('active');
+        hamburger.classList.remove('active');
+        document.body.style.overflow = '';
+    });
 });

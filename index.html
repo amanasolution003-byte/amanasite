@@ -11,23 +11,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Tajawal:wght@400;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Language Selector -->
-    <div class="language-selector" id="languageSelector">
-        <button class="lang-btn active" data-lang="fr" onclick="switchLanguage('fr')">FR</button>
-        <button class="lang-btn" data-lang="ar" onclick="switchLanguage('ar')">AR</button>
-        <button class="lang-btn" data-lang="en" onclick="switchLanguage('en')">EN</button>
+<!-- Language Selector Mobile -->
+    <div class="language-selector-mobile" id="languageSelectorMobile">
+        <button class="lang-btn-mobile" onclick="switchLanguage('fr')">FR</button>
+        <button class="lang-btn-mobile" onclick="switchLanguage('ar')">AR</button>
+        <button class="lang-btn-mobile" onclick="switchLanguage('en')">EN</button>
     </div>
 
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="logo">Amana-Solution</div>
-        <ul class="nav-links">
+        <!-- Logo visible on desktop -->
+        <div class="logo-desktop">Amana-Solution</div>
+        
+        <!-- Hamburger menu for mobile -->
+        <div class="hamburger" id="hamburger" onclick="toggleNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <!-- Mobile navigation drawer -->
+        <ul class="nav-links mobile" id="mobileNav">
             <li><a href="#about">À propos</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#guarantees">Garanties</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
+
+    <!-- Language Selector Desktop -->
+    <div class="language-selector" id="languageSelector">
+        <button class="lang-btn active" data-lang="fr" onclick="switchLanguage('fr')">FR</button>
+        <button class="lang-btn" data-lang="ar" onclick="switchLanguage('ar')">AR</button>
+        <button class="lang-btn" data-lang="en" onclick="switchLanguage('en')">EN</button>
+    </div>
 
     <!-- Hero Section -->
     <header class="hero" id="home">
