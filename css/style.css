@@ -55,9 +55,9 @@ button { font-family: inherit; cursor: pointer; }
 ::selection { background: #c7d2fe; color: var(--ink); }
 
 /* Arabic typography */
-html[dir="ar"] body { font-family: 'Tajawal', 'Noto Naskh Arabic', var(--font-body); }
-html[dir="ar"] h1, html[dir="ar"] h2, html[dir="ar"] h3, html[dir="ar"] h4,
-html[dir="ar"] .logo-text, html[dir="ar"] .btn {
+html[lang="ar"] body { font-family: 'Tajawal', 'Noto Naskh Arabic', var(--font-body); }
+html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3, html[lang="ar"] h4,
+html[lang="ar"] .logo-text, html[lang="ar"] .btn {
     font-family: 'Tajawal', 'Noto Naskh Arabic', var(--font-head);
 }
 
