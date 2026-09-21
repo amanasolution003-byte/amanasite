@@ -294,6 +294,14 @@ let currentLang = null;
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
+/* Safe storage (private mode / storage disabled must not break the site) */
+function storageGet(key) {
+    try { return window.localStorage.getItem(key); } catch (e) { return null; }
+}
+function storageSet(key, value) {
+    try { window.localStorage.setItem(key, value); } catch (e) { /* ignore */ }
+}
+
 function translatePage() {
     // Static [data-i18n] elements
     $$('[data-i18n]').forEach(el => {
@@ -417,7 +425,7 @@ function switchLanguage(lang, persist = true) {
     });
 
     translatePage();
-    if (persist) localStorage.setItem('userLanguage', lang);
+    if (persist) storageSet('userLanguage', lang);
     const metaTitle = translations[lang].documentTitle;
     if (metaTitle) document.title = metaTitle;
 }
@@ -538,16 +546,17 @@ function initForm() {
 /* ---------- Init ---------- */
 document.addEventListener('DOMContentLoaded', () => {
     // Default language: saved preference, else auto-detect from the visitor's device
-    const saved = localStorage.getItem('userLanguage');
+    const saved = storageGet('userLanguage');
     if (saved && translations[saved]) {
         switchLanguage(saved, false);        // use saved preference, already stored
     } else {
         switchLanguage(detectBrowserLanguage(), false); // auto-detect, don't lock it in
     }
 
-    // Language selector buttons
-    $$('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', () => switchLanguage(btn.dataset.lang, true));
+    // Language selector buttons — event delegation (robust to any re-render)
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest ? e.target.closest('.lang-btn') : null;
+        if (btn && btn.dataset.lang) switchLanguage(btn.dataset.lang, true);
     });
 
     // Mobile nav events
