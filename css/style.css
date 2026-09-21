@@ -281,9 +281,19 @@ html[lang="ar"] .logo-text, html[lang="ar"] .btn {
     box-shadow: -20px 0 60px rgba(0, 0, 0, 0.35);
 }
 .mobile-nav.open { right: 0; }
-.mobile-nav .nav-links { flex-direction: column; align-items: flex-start; gap: 1.1rem; }
-.mobile-nav .nav-links a:not(.btn) { font-size: 1.15rem; color: rgba(255, 255, 255, 0.9); }
-.mobile-nav .btn { margin-top: 0.5rem; width: 100%; }
+.mobile-nav .nav-links { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+.mobile-nav .nav-links li { border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+.mobile-nav .nav-links li:last-child { border-bottom: 0; }
+.mobile-nav .nav-links a:not(.btn) {
+    display: block;
+    padding: 0.9rem 0.25rem;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+.mobile-nav .nav-links a:not(.btn)::after { display: none; }
+.mobile-nav .nav-links a:not(.btn):hover,
+.mobile-nav .nav-links a:not(.btn).active { color: #fff; }
+.mobile-nav .btn { margin-top: 1.2rem; width: 100%; }
 
 .nav-overlay {
     position: fixed;
@@ -1066,7 +1076,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     .about-inner { grid-template-columns: 1fr; gap: 3rem; }
     .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     .footer-content { grid-template-columns: 1fr 1fr; }
-    .nav-links { display: none; }
+    .nav-inner > .nav-links { display: none; }
     .hamburger { display: flex; }
     .nav-cta { display: none; }
     .float-chip { display: none; }

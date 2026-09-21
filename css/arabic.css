@@ -65,6 +65,13 @@ html[dir="rtl"] .navbar .nav-actions {
 
 /* Mobile drawer slides from the left in RTL */
 @media (max-width: 1024px) {
-    html[dir="rtl"] .mobile-nav { right: auto; left: -320px; border-left: none; border-right: 1px solid rgba(255,255,255,0.08); }
+    html[dir="rtl"] .mobile-nav {
+        right: auto;
+        left: -320px;
+        border-left: none;
+        border-right: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 20px 0 60px rgba(0, 0, 0, 0.35);
+        transition: left 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
     html[dir="rtl"] .mobile-nav.open { left: 0; }
 }
