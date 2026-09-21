@@ -1,57 +1,70 @@
-/* Arabic Right-to-Left Layout Adjustments */
-html[dir="ar"] .navbar .nav-links {
-    float: right;
-    margin-left: 0;
-    margin-right: auto;
+/* ============================================================
+   Amana-Solution — Arabic / RTL adjustments
+   Applied whenever html[dir="ar"] (loaded unconditionally,
+   rules gated on the document direction attribute).
+   ============================================================ */
+
+html[dir="ar"] body {
+    text-align: right;
 }
 
-html[dir="ar"] .language-selector {
-    left: 20px;
-    right: auto;
-}
-
-html[dir="ar"] .about-content {
-    grid-template-columns: 1fr;
+/* Buttons & pills keep internal order, but text aligns right */
+html[dir="ar"] .navbar .nav-inner,
+html[dir="ar"] .hero-actions,
+html[dir="ar"] .check-list,
+html[dir="ar"] .contact-item,
+html[dir="ar"] .badge,
+html[dir="ar"] .footer-links,
+html[dir="ar"] .social-row {
     direction: rtl;
 }
 
+/* Hero */
+html[dir="ar"] .hero-title,
+html[dir="ar"] .hero-subtitle {
+    text-align: center;
+}
+
+/* About */
+html[dir="ar"] .about-text p { text-align: right; }
+
+/* Sections parity */
 html[dir="ar"] .services-grid,
-html[dir="ar"] .portfolio-grid {
+html[dir="ar"] .pillars-grid,
+html[dir="ar"] .process-grid,
+html[dir="ar"] .guarantees-grid,
+html[dir="ar"] .stats-grid {
     direction: rtl;
 }
 
-html[dir="ar"] .contact-content {
-    direction: rtl;
-}
+html[dir="ar"] .stat { border-left: none; border-right: 1px solid var(--line); }
+html[dir="ar"] .stat:last-child { border-right: none; }
 
-html[dir="ar"] .footer-content {
-    direction: rtl;
-}
-
-html[dir="ar"] .contact-item .contact-value {
-    text-align: right;
-}
-
-html[dir="ar"] .hero-title {
-    text-align: right;
-}
-
-html[dir="ar"] blockquote,
-html[dir="ar"] q {
-    direction: rtl;
-}
-
-/* Arabic specific adjustments */
-html[dir="ar"] .about-image {
-    order: -1;
-    text-align: right;
-}
-
-html[dir="ar"] .contact-form {
-    direction: rtl;
-}
-
+/* Contact form */
+html[dir="ar"] .contact-form { direction: rtl; }
 html[dir="ar"] .contact-form input,
 html[dir="ar"] .contact-form textarea {
     text-align: right;
+}
+
+/* FAQ */
+html[dir="ar"] .faq-q { text-align: right; }
+html[dir="ar"] .faq-a p { text-align: right; }
+
+/* Footer */
+html[dir="ar"] .footer-content { direction: rtl; }
+
+/* Floating elements */
+html[dir="ar"] .floating-whatsapp { right: auto; left: 22px; }
+html[dir="ar"] .scroll-top { left: auto; right: 22px; }
+
+/* Language selector keeps left position for Arabic mirroring */
+html[dir="ar"] .navbar .nav-actions {
+    direction: rtl;
+}
+
+/* Mobile drawer slides from the left in RTL */
+@media (max-width: 1024px) {
+    html[dir="ar"] .mobile-nav { right: auto; left: -320px; border-left: none; border-right: 1px solid rgba(255,255,255,0.08); }
+    html[dir="ar"] .mobile-nav.open { left: 0; }
 }
