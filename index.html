@@ -1,156 +1,408 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amana-Solution - Création de Sites Web et Solutions ERP/CRM</title>
+    <title>Amana-Solution — Création de sites web, CRM & solutions digitales pour PME</title>
+    <meta name="description" content="Amana-Solution accompagne les PME dans leur transformation digitale : sites web modernes, CRM & ERP sur mesure, automatisation des processus. Prix fixe, délais tenus, support à la livraison.">
+    <meta name="keywords" content="création site web, agence digitale, CRM, ERP, automatisation, PME, Algérie, Amana-Solution">
+    <meta name="author" content="Amana-Solution">
+    <meta name="theme-color" content="#0b1020">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Amana-Solution — Solutions digitales pour PME">
+    <meta property="og:description" content="Sites web modernes, CRM & ERP sur mesure et automatisation de vos processus. Prix fixe, délais tenus, support garanti.">
+    <meta property="og:url" content="https://amanasolution003-byte.github.io/amanasite/">
+    <meta property="og:image" content="https://amanasolution003-byte.github.io/amanasite/img/logo.svg">
+    <meta name="twitter:card" content="summary">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+    <link rel="apple-touch-icon" href="img/favicon.svg">
+    <link rel="canonical" href="https://amanasolution003-byte.github.io/amanasite/">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/arabic.css" media="screen and (direction: rtl)">
+    <link rel="stylesheet" href="css/arabic.css">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Noto+Naskh+Arabic:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;600;700;800&family=Tajawal:wght@400;500;700&family=Noto+Naskh+Arabic:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Amana-Solution",
+      "description": "Création de sites web, CRM & ERP sur mesure et automatisation pour les PME.",
+      "url": "https://amanasolution003-byte.github.io/amanasite/",
+      "logo": "https://amanasolution003-byte.github.io/amanasite/img/logo.svg",
+      "telephone": "+213561790077",
+      "email": "amana.solution003@gmail.com",
+      "priceRange": "500€ - 5000€",
+      "areaServed": "FR, DZ, US, GB"
+    }
+    </script>
 </head>
 <body>
-    <!-- Language Selector -->
-    <div class="language-selector" id="languageSelector">
-        <button class="lang-btn active" data-lang="fr" onclick="switchLanguage('fr')">FR</button>
-        <button class="lang-btn" data-lang="ar" onclick="switchLanguage('ar')">AR</button>
-        <button class="lang-btn" data-lang="en" onclick="switchLanguage('en')">EN</button>
-    </div>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="logo">Amana-Solution</div>
-        <ul class="nav-links">
-            <li><a href="#about">À propos</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-inner">
+            <a href="#home" class="logo" aria-label="Amana-Solution — accueil">
+                <img src="img/logo.svg" alt="Logo Amana-Solution" width="40" height="40">
+                <span class="logo-text">Amana-<span class="logo-accent">Solution</span></span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about" data-i18n="navAbout">À propos</a></li>
+                <li><a href="#services" data-i18n="navServices">Services</a></li>
+                <li><a href="#process" data-i18n="navProcess">Démarche</a></li>
+                <li><a href="#faq" data-i18n="navFaq">FAQ</a></li>
+                <li><a href="#contact" data-i18n="navContact">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <div class="language-selector" id="languageSelector" aria-label="Sélecteur de langue / Language selector">
+                    <button class="lang-btn active" data-lang="fr" aria-pressed="true">FR</button>
+                    <button class="lang-btn" data-lang="ar" aria-pressed="false">AR</button>
+                    <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+                </div>
+                <a href="#contact" class="btn btn-primary btn-sm nav-cta" data-i18n="navCta">Devis gratuit</a>
+                <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobileNav">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile drawer -->
+        <div class="mobile-nav" id="mobileNav">
+            <ul class="nav-links mobile">
+                <li><a href="#about" data-i18n="navAbout">À propos</a></li>
+                <li><a href="#services" data-i18n="navServices">Services</a></li>
+                <li><a href="#process" data-i18n="navProcess">Démarche</a></li>
+                <li><a href="#faq" data-i18n="navFaq">FAQ</a></li>
+                <li><a href="#contact" data-i18n="navContact">Contact</a></li>
+                <li><a href="#contact" class="btn btn-primary" data-i18n="navCta">Devis gratuit</a></li>
+            </ul>
+        </div>
+        <div class="nav-overlay" id="navOverlay"></div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- ===== HERO ===== -->
     <header class="hero" id="home">
-        <div class="hero-content">
-            <h1 class="hero-title" id="heroTitle" data-i18n="heroTitle">Création de Sites Web<br>et Solutions Digitales</h1>
-            <p class="hero-subtitle" id="heroSubtitle" data-i18n="heroSubtitle">Des solutions sur mesure pour les PME : sites web, CRM, ERP et automatisation</p>
-            <a href="#contact" class="cta-btn" id="ctaBtn" data-i18n="ctaBtn">Discutons de votre projet</a>
+        <div class="hero-bg" aria-hidden="true">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+            <div class="grid-overlay"></div>
         </div>
+        <div class="container hero-inner">
+            <div class="hero-badge reveal">
+                <span class="badge-dot"></span>
+                <span data-i18n="heroBadge">Agence digitale pour PME</span>
+            </div>
+            <h1 class="hero-title reveal" id="heroTitle" data-i18n="heroTitle">Création de sites web<br>et <span class="gradient-text">solutions digitales</span></h1>
+            <p class="hero-subtitle reveal" id="heroSubtitle" data-i18n="heroSubtitle">Des solutions sur mesure pour les PME : sites web, CRM, ERP et automatisation — pour gagner du temps, de la crédibilité et des clients.</p>
+            <div class="hero-actions reveal">
+                <a href="#contact" class="btn btn-primary btn-lg" data-i18n="ctaPrimary">Discutons de votre projet</a>
+                <a href="#services" class="btn btn-ghost btn-lg" data-i18n="ctaSecondary">Découvrir nos services</a>
+            </div>
+            <div class="hero-chips reveal" aria-hidden="true">
+                <span>Sites web</span><span>E-commerce</span><span>CRM</span><span>ERP</span><span>Automatisation</span>
+            </div>
+        </div>
+        <a href="#stats" class="scroll-indicator" aria-label="Défiler vers le bas">
+            <span></span>
+        </a>
     </header>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" id="aboutTitle" data-i18n="aboutTitle">À propos de nous</h2>
+    <!-- ===== STATS ===== -->
+    <section class="stats-bar" id="stats">
+        <div class="container stats-grid">
+            <div class="stat reveal">
+                <span class="stat-number" data-count="3" data-suffix="+">0+</span>
+                <span class="stat-label" data-i18n="statYears">Années d'expérience</span>
             </div>
-            <div class="about-content">
-                <div class="about-text" id="aboutText">
-                    <p id="aboutPara1" data-i18n="aboutPara1">Amana-Solution accompagne les petites et moyennes entreprises dans leur transformation digitale. Nous créons des sites web modernes, des solutions CRM et ERP sur mesure, et nous automatisons vos processus pour optimiser votre productivité.</p>
-                    <p id="aboutPara2" data-i18n="aboutPara2">Notre équipe combine expertise technique et compréhension des besoins business pour livrer des solutions qui génèrent de la valeur.</p>
-                </div>
-                <div class="about-image">
-                    <div class="image-placeholder" id="imagePlaceholder">
-                        <img src="img/logo.svg" alt="Amana-Solution Logo" class="logo-img">
-                    </div>
-                </div>
+            <div class="stat reveal">
+                <span class="stat-number" data-count="25" data-suffix="+">0+</span>
+                <span class="stat-label" data-i18n="statProjects">Projets livrés</span>
             </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" id="servicesTitle" data-i18n="servicesTitle">Nos Services</h2>
+            <div class="stat reveal">
+                <span class="stat-number" data-count="15" data-suffix="+">0+</span>
+                <span class="stat-label" data-i18n="statClients">Clients accompagnés</span>
             </div>
-            <div class="services-grid" id="servicesGrid">
-                <!-- Services will be inserted by JS -->
+            <div class="stat reveal">
+                <span class="stat-number" data-count="98" data-suffix="%">0%</span>
+                <span class="stat-label" data-i18n="statSatisfaction">Clients satisfaits</span>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section class="portfolio" id="portfolio">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" id="portfolioTitle" data-i18n="portfolioTitle">Nos Projets</h2>
+    <!-- ===== ABOUT ===== -->
+    <section class="about section" id="about">
+        <div class="container about-inner">
+            <div class="about-text reveal">
+                <span class="eyebrow" data-i18n="aboutEyebrow">Qui sommes-nous ?</span>
+                <h2 class="section-title" data-i18n="aboutTitle">À propos de nous</h2>
+                <p data-i18n="aboutPara1">Amana-Solution accompagne les petites et moyennes entreprises dans leur transformation digitale. Nous créons des sites web modernes, des solutions CRM et ERP sur mesure, et nous automatisons vos processus pour optimiser votre productivité.</p>
+                <p data-i18n="aboutPara2">Notre équipe combine expertise technique et compréhension des besoins business pour livrer des solutions qui génèrent de la valeur — avec des prix clairs et des délais tenus.</p>
+                <ul class="check-list">
+                    <li data-i18n="aboutPoint1">Conception sur mesure, adaptée à votre activité</li>
+                    <li data-i18n="aboutPoint2">Technologies modernes et évolutives</li>
+                    <li data-i18n="aboutPoint3">Accompagnement du premier contact à la livraison</li>
+                    <li data-i18n="aboutPoint4">Support après livraison inclus</li>
+                </ul>
             </div>
-            <div class="portfolio-grid" id="portfolioGrid">
-                <!-- Portfolio items will be inserted by JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" id="contactTitle" data-i18n="contactTitle">Contactez-nous</h2>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info" id="contactInfo">
-                    <div class="contact-item">
-                        <div class="contact-icon">📞</div>
-                        <div class="contact-detail">
-                            <h3 class="contact-label" id="contactLabelPhone" data-i18n="contactLabelPhone">Téléphone</h3>
-                            <p class="contact-value" id="contactPhone" data-i18n="contactPhone">+216 55 123 456</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📧</div>
-                        <div class="contact-detail">
-                            <h3 class="contact-label" id="contactLabelEmail" data-i18n="contactLabelEmail">Email</h3>
-                            <p class="contact-value" id="contactEmail" data-i18n="contactEmail">info@amana-solution.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div class="contact-detail">
-                            <h3 class="contact-label" id="contactLabelAddress" data-i18n="contactLabelAddress">Adresse</h3>
-                            <p class="contact-value" id="contactAddress" data-i18n="contactAddress">Tunisie</p>
-                        </div>
+            <div class="about-visual reveal">
+                <div class="about-card">
+                    <div class="about-card-glow" aria-hidden="true"></div>
+                    <img src="img/logo.svg" alt="Logo Amana-Solution" class="about-logo" width="120" height="120">
+                    <h3>Amana-Solution</h3>
+                    <p data-i18n="aboutCardTag">Votre partenaire digital de confiance</p>
+                    <div class="about-card-stats">
+                        <div><strong data-i18n="aboutCardStat1">Sites + CRMs</strong><span data-i18n="aboutCardStat2">livrés clé en main</span></div>
+                        <div><strong data-i18n="aboutCardStat3">1 an</strong><span data-i18n="aboutCardStat4">d'hébergement offert</span></div>
                     </div>
                 </div>
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Votre nom" required id="formName" data-i18n="formName">
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Votre email" required id="formEmail" data-i18n="formEmail">
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" placeholder="Votre message" required id="formMessage" data-i18n="formMessage"></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit" id="formSubmit" data-i18n="formSubmit">Envoyer le message</button>
-                </form>
+                <div class="float-chip chip-1" aria-hidden="true">⚡ <span data-i18n="chipFast">Rapide</span></div>
+                <div class="float-chip chip-2" aria-hidden="true">🔒 <span data-i18n="chipSecure">Sécurisé</span></div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ===== SERVICES ===== -->
+    <section class="services section" id="services">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow" data-i18n="servicesEyebrow">Ce que nous faisons</span>
+                <h2 class="section-title" data-i18n="servicesTitle">Nos Services</h2>
+                <p class="section-sub" data-i18n="servicesSubtitle">Des solutions complètes, pensées pour les besoins réels des PME.</p>
+            </div>
+            <div class="services-grid" id="servicesGrid"><!-- injected by JS --></div>
+        </div>
+    </section>
+
+    <!-- ===== PILLARS ===== -->
+    <section class="pillars section" id="pillars">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow" data-i18n="pillarsEyebrow">Notre méthode</span>
+                <h2 class="section-title" data-i18n="pillarsTitle">Trois piliers pour votre activité</h2>
+                <p class="section-sub" data-i18n="pillarsSubtitle">Chaque solution est construite autour d'un objectif clair : vous faire gagner du temps, de la crédibilité et des clients.</p>
+            </div>
+            <div class="pillars-grid">
+                <article class="pillar-card reveal">
+                    <div class="pillar-icon" style="--ic: #4f46e5; --ic2: #06b6d4;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/><path d="M3 18l9 5 9-5"/></svg>
+                    </div>
+                    <h3 data-i18n="pillar1Title">Développement Web</h3>
+                    <p data-i18n="pillar1Desc">Une vitrine claire, rapide et conçue pour convertir les visiteurs en clients.</p>
+                    <a href="#contact" class="pillar-btn" data-i18n="pillarBtn">Demander un devis</a>
+                </article>
+                <article class="pillar-card reveal">
+                    <div class="pillar-icon" style="--ic: #10b981; --ic2: #06b6d4;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 14h3"/><path d="M14 14h2"/><rect x="8" y="14" width="3" height="3" fill="currentColor" stroke="none"/></svg>
+                    </div>
+                    <h3 data-i18n="pillar2Title">Mini CRM &amp; ERP</h3>
+                    <p data-i18n="pillar2Desc">Outils simples, faits pour vous : suivi des clients, devis, factures, stocks — tout au même endroit.</p>
+                    <a href="#contact" class="pillar-btn" data-i18n="pillarBtn">Demander un devis</a>
+                </article>
+                <article class="pillar-card reveal">
+                    <div class="pillar-icon" style="--ic: #f59e0b; --ic2: #ef4444;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+                    </div>
+                    <h3 data-i18n="pillar3Title">Automatisation</h3>
+                    <p data-i18n="pillar3Desc">Relances, devis, rappels : ce qui se répète chaque semaine se fait tout seul. Vous gagnez du temps dès le premier mois.</p>
+                    <a href="#contact" class="pillar-btn" data-i18n="pillarBtn">Demander un devis</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROCESS ===== -->
+    <section class="process section" id="process">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow" data-i18n="processEyebrow">Comment ça marche ?</span>
+                <h2 class="section-title" data-i18n="processTitle">Un déroulement simple et transparent</h2>
+            </div>
+            <div class="process-grid">
+                <div class="process-step reveal">
+                    <span class="step-num">01</span>
+                    <h3 data-i18n="process1Title">Écoute &amp; audit</h3>
+                    <p data-i18n="process1Desc">Nous comprenons votre activité, vos objectifs et vos contraintes.</p>
+                </div>
+                <div class="process-step reveal">
+                    <span class="step-num">02</span>
+                    <h3 data-i18n="process2Title">Devis clair</h3>
+                    <p data-i18n="process2Desc">Un devis fixe et détaillé, sans frais cachés ni mauvaise surprise.</p>
+                </div>
+                <div class="process-step reveal">
+                    <span class="step-num">03</span>
+                    <h3 data-i18n="process3Title">Conception &amp; développement</h3>
+                    <p data-i18n="process3Desc">Design, maquettes puis développement avec des points de validation réguliers.</p>
+                </div>
+                <div class="process-step reveal">
+                    <span class="step-num">04</span>
+                    <h3 data-i18n="process4Title">Livraison &amp; support</h3>
+                    <p data-i18n="process4Desc">Mise en ligne, formation et accompagnement pour la suite.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GUARANTEES ===== -->
+    <section class="guarantees section" id="guarantees">
+        <div class="container">
+            <div class="guarantees-head reveal">
+                <span class="eyebrow" data-i18n="guaranteesEyebrow">Confiance</span>
+                <h2 class="section-title" data-i18n="guaranteesTitle">Nos Garanties</h2>
+                <p data-i18n="guaranteesSubtitle">Trois piliers de confiance pour votre activité</p>
+            </div>
+            <div class="guarantees-grid">
+                <div class="guarantee-card reveal">
+                    <div class="guarantee-icon" style="--ic: #4f46e5; --ic2: #06b6d4;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+                    </div>
+                    <h3 data-i18n="guarantee1Title">Prix fixe</h3>
+                    <p data-i18n="guarantee1Desc">Le devis que vous signez est le prix final. Aucun frais caché.</p>
+                    <a href="#contact" class="guarantee-btn" data-i18n="guaranteeBtn">Demander un devis</a>
+                </div>
+                <div class="guarantee-card reveal">
+                    <div class="guarantee-icon" style="--ic: #10b981; --ic2: #06b6d4;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                    </div>
+                    <h3 data-i18n="guarantee2Title">Délais tenus</h3>
+                    <p data-i18n="guarantee2Desc">Un délai de réalisation clair et adapté au projet, respecté.</p>
+                    <a href="#contact" class="guarantee-btn" data-i18n="guaranteeBtn">Demander un devis</a>
+                </div>
+                <div class="guarantee-card reveal">
+                    <div class="guarantee-icon" style="--ic: #f59e0b; --ic2: #ef4444;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0116-5.2"/><path d="M21 12a9 9 0 01-16 5.2"/><path d="M12 3v4M12 17v4"/><path d="M3 12h4M17 12h4"/></svg>
+                    </div>
+                    <h3 data-i18n="guarantee3Title">Support à la livraison</h3>
+                    <p data-i18n="guarantee3Desc">Livré ne veut pas dire oublié : vous restez accompagné pour les évolutions.</p>
+                    <a href="#contact" class="guarantee-btn" data-i18n="guaranteeBtn">Demander un devis</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="faq section" id="faq">
+        <div class="container faq-wrap">
+            <div class="section-head reveal">
+                <span class="eyebrow" data-i18n="faqEyebrow">Questions fréquentes</span>
+                <h2 class="section-title" data-i18n="faqTitle">FAQ</h2>
+            </div>
+            <div class="faq-list reveal" id="faqList"><!-- injected by JS --></div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="contact section" id="contact">
+        <div class="container contact-inner">
+            <div class="contact-info reveal">
+                <span class="eyebrow" data-i18n="contactEyebrow">Parlons de votre projet</span>
+                <h2 class="section-title" data-i18n="contactTitle">Contactez-nous</h2>
+                <p class="contact-intro" data-i18n="contactIntro">Une question, un projet, une idée ? Écrivez-nous, nous répondons rapidement.</p>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-detail">
+                        <h3 data-i18n="contactLabelPhone">Téléphone</h3>
+                        <a href="tel:+213561790077" class="contact-value">+213 561 79 00 77</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-detail">
+                        <h3 data-i18n="contactLabelEmail">Email</h3>
+                        <a href="mailto:amana.solution003@gmail.com" class="contact-value">amana.solution003@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">💬</div>
+                    <div class="contact-detail">
+                        <h3 data-i18n="contactLabelWhatsApp">WhatsApp</h3>
+                        <a href="https://wa.me/+213561790077" target="_blank" rel="noopener" class="contact-value">+213 561 79 00 77</a>
+                    </div>
+                </div>
+                <div class="contact-response" data-i18n="contactResponse">Réponse en moins de 24h ouvrées ⏱️</div>
+            </div>
+
+            <form class="contact-form reveal" id="contactForm" novalidate>
+                <div class="form-group">
+                    <label for="formName" data-i18n="formNameLabel">Votre nom</label>
+                    <input type="text" name="name" id="formName" placeholder="Jean Dupont" required autocomplete="name">
+                </div>
+                <div class="form-group">
+                    <label for="formEmail" data-i18n="formEmailLabel">Votre email</label>
+                    <input type="email" name="email" id="formEmail" placeholder="jean@exemple.com" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label for="formMessage" data-i18n="formMessageLabel">Votre message</label>
+                    <textarea name="message" id="formMessage" placeholder="Décrivez votre projet…" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" data-i18n="formSubmit">Envoyer le message</button>
+                <p class="form-note" data-i18n="formNote">Votre message sera envoyé directement via WhatsApp — réponse rapide garantie.</p>
+                <div class="form-success" role="status" aria-live="polite"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Scroll top -->
+    <button class="scroll-top" id="scrollTop" aria-label="Retour en haut">↑</button>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/+213561790077?text=Bonjour%20Amana-Solution%2C%20je%20souhaite%20discuter%20d%27un%20projet." class="floating-whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.11 3.22 5.1 4.51.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35z"/><path d="M12 2a10 10 0 00-8.66 15L2 22l5.13-1.32A10 10 0 1012 2zm0 18.3a8.3 8.3 0 01-4.23-1.16l-.3-.18-3.04.78.81-2.96-.2-.31A8.3 8.3 0 1112 20.3z"/></svg>
+    </a>
+
+    <!-- ===== FOOTER ===== -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3 data-i18n="footerBrand">Amana-Solution</h3>
-                    <p data-i18n="footerDesc">Création de sites web et solutions digitales pour PME</p>
-                </div>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#home" class="logo"><img src="img/logo.svg" alt="Logo Amana-Solution" width="36" height="36"><span class="logo-text">Amana-<span class="logo-accent">Solution</span></span></a>
+                <p data-i18n="footerDesc">Création de sites web et solutions digitales pour PME</p>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footerNav">Navigation</h4>
                 <ul class="footer-links">
                     <li><a href="#about" data-i18n="footerAbout">À propos</a></li>
                     <li><a href="#services" data-i18n="footerServices">Services</a></li>
-                    <li><a href="#portfolio" data-i18n="footerPortfolio">Portfolio</a></li>
+                    <li><a href="#guarantees" data-i18n="footerPortfolio">Garanties</a></li>
                     <li><a href="#contact" data-i18n="footerContact">Contact</a></li>
                 </ul>
-                <div class="footer-social">
-                    <a href="#" target="_blank" aria-label="LinkedIn" data-i18n="footerSocialLabel">LinkedIn</a>
-                    <a href="#" target="_blank" aria-label="GitHub" data-i18n="footerSocialLabel">GitHub</a>
-                    <a href="#" target="_blank" aria-label="Twitter" data-i18n="footerSocialLabel">Twitter</a>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footerContactTitle">Contact</h4>
+                <ul class="footer-links">
+                    <li><a href="tel:+213561790077">+213 561 79 00 77</a></li>
+                    <li><a href="mailto:amana.solution003@gmail.com">amana.solution003@gmail.com</a></li>
+                    <li><a href="https://wa.me/+213561790077" target="_blank" rel="noopener">WhatsApp</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-social">
+                <h4 data-i18n="footerSocialTitle">Réseaux</h4>
+                <div class="social-row">
+                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14zM8.34 18.34V9.5H5.67v8.84h2.67zM7 8.5a1.55 1.55 0 100-3.1 1.55 1.55 0 000 3.1zM18.34 18.34v-4.85c0-2.6-1.39-3.8-3.24-3.8-1.5 0-2.16.82-2.53 1.4V9.5H9.9v8.84h2.67v-4.37c0-1.15.22-2.27 1.65-2.27 1.41 0 1.43 1.32 1.43 2.34v4.3h2.69z"/></svg>
+                    </a>
+                    <a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.17 6.84 9.5.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.58 9.58 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.18.58.69.48A10 10 0 0022 12 10 10 0 0012 2z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 10-11.5 9.9v-7H7.9V12h2.6V9.8c0-2.6 1.5-4 3.9-4 1.1 0 2.3.2 2.3.2v2.6h-1.3c-1.3 0-1.7.8-1.7 1.6V12h2.9l-.5 2.9h-2.4v7A10 10 0 0022 12z"/></svg>
+                    </a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p data-i18n="footerCopyright">2026 Amana-Solution. Tous droits réservés.</p>
-            </div>
+        </div>
+        <div class="footer-bottom">
+            <p><span data-i18n="footerCopyright">Tous droits réservés.</span> © <span id="year">2026</span> Amana-Solution</p>
         </div>
     </footer>
 
