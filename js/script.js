@@ -34,6 +34,8 @@ const translations = {
         aboutCardStat1: 'Sites + CRMs', aboutCardStat2: 'livrés clé en main',
         aboutCardStat3: '1 an', aboutCardStat4: "d'hébergement offert",
         chipFast: 'Rapide', chipSecure: 'Sécurisé',
+        chipWeb: 'Sites web', chipEcommerce: 'E-commerce', chipCrm: 'CRM', chipErp: 'ERP', chipAutomation: 'Automatisation',
+        ariaLogo: 'Amana-Solution — accueil', ariaMenu: 'Menu', ariaScrollDown: 'Défiler vers le bas', ariaScrollTop: 'Retour en haut',
 
         servicesEyebrow: 'Ce que nous faisons',
         servicesTitle: 'Nos Services',
@@ -125,6 +127,8 @@ const translations = {
         aboutCardStat1: 'مواقع + أنظمة CRM', aboutCardStat2: 'مسلّمة وجاهزة',
         aboutCardStat3: 'سنة واحدة', aboutCardStat4: 'استضافة مجانية',
         chipFast: 'سريع', chipSecure: 'آمن',
+        chipWeb: 'مواقع ويب', chipEcommerce: 'تجارة إلكترونية', chipCrm: 'CRM', chipErp: 'ERP', chipAutomation: 'الأتمتة',
+        ariaLogo: 'Amana-Solution — الرئيسية', ariaMenu: 'القائمة', ariaScrollDown: 'التمرير للأسفل', ariaScrollTop: 'العودة للأعلى',
 
         servicesEyebrow: 'ما نقوم به',
         servicesTitle: 'خدماتنا',
@@ -216,6 +220,8 @@ const translations = {
         aboutCardStat1: 'Websites + CRMs', aboutCardStat2: 'delivered turnkey',
         aboutCardStat3: '1 year', aboutCardStat4: 'free hosting',
         chipFast: 'Fast', chipSecure: 'Secure',
+        chipWeb: 'Websites', chipEcommerce: 'E-commerce', chipCrm: 'CRM', chipErp: 'ERP', chipAutomation: 'Automation',
+        ariaLogo: 'Amana-Solution — home', ariaMenu: 'Menu', ariaScrollDown: 'Scroll down', ariaScrollTop: 'Back to top',
 
         servicesEyebrow: 'What we do',
         servicesTitle: 'Our Services',
@@ -300,8 +306,27 @@ function translatePage() {
             el.innerHTML = value;
         }
     });
+    // Accessible labels [data-i18n-aria]
+    $$('[data-i18n-aria]').forEach(el => {
+        const value = translations[currentLang][el.dataset.i18nAria];
+        if (typeof value === 'string') el.setAttribute('aria-label', value);
+    });
     renderServices();
     renderFAQ();
+}
+
+/* ---------- Browser language detection ---------- */
+function detectBrowserLanguage() {
+    const list = (navigator.languages && navigator.languages.length)
+        ? navigator.languages
+        : [navigator.language || 'fr'];
+    for (const raw of list) {
+        const code = String(raw).toLowerCase();
+        if (code.startsWith('ar')) return 'ar';
+        if (code.startsWith('en')) return 'en';
+        if (code.startsWith('fr')) return 'fr';
+    }
+    return 'fr';
 }
 
 /* ---------- Services injection ---------- */
@@ -379,7 +404,7 @@ function toggleFaq(btn) {
 }
 
 /* ---------- Language switching ---------- */
-function switchLanguage(lang) {
+function switchLanguage(lang, persist = true) {
     if (!translations[lang]) return;
     currentLang = lang;
     document.documentElement.lang = lang;
@@ -392,7 +417,7 @@ function switchLanguage(lang) {
     });
 
     translatePage();
-    localStorage.setItem('userLanguage', lang);
+    if (persist) localStorage.setItem('userLanguage', lang);
     const metaTitle = translations[lang].documentTitle;
     if (metaTitle) document.title = metaTitle;
 }
@@ -512,10 +537,18 @@ function initForm() {
 
 /* ---------- Init ---------- */
 document.addEventListener('DOMContentLoaded', () => {
-    // Default language
+    // Default language: saved preference, else auto-detect from the visitor's device
     const saved = localStorage.getItem('userLanguage');
-    const lang = saved && translations[saved] ? saved : 'fr';
-    switchLanguage(lang);
+    if (saved && translations[saved]) {
+        switchLanguage(saved, false);        // use saved preference, already stored
+    } else {
+        switchLanguage(detectBrowserLanguage(), false); // auto-detect, don't lock it in
+    }
+
+    // Language selector buttons
+    $$('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => switchLanguage(btn.dataset.lang, true));
+    });
 
     // Mobile nav events
     $('#hamburger').addEventListener('click', toggleNav);

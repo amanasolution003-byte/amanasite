@@ -1,70 +1,70 @@
 /* ============================================================
    Amana-Solution — Arabic / RTL adjustments
-   Applied whenever html[dir="ar"] (loaded unconditionally,
+   Applied whenever html[dir="rtl"] (loaded unconditionally,
    rules gated on the document direction attribute).
    ============================================================ */
 
-html[dir="ar"] body {
+html[dir="rtl"] body {
     text-align: right;
 }
 
 /* Buttons & pills keep internal order, but text aligns right */
-html[dir="ar"] .navbar .nav-inner,
-html[dir="ar"] .hero-actions,
-html[dir="ar"] .check-list,
-html[dir="ar"] .contact-item,
-html[dir="ar"] .badge,
-html[dir="ar"] .footer-links,
-html[dir="ar"] .social-row {
+html[dir="rtl"] .navbar .nav-inner,
+html[dir="rtl"] .hero-actions,
+html[dir="rtl"] .check-list,
+html[dir="rtl"] .contact-item,
+html[dir="rtl"] .badge,
+html[dir="rtl"] .footer-links,
+html[dir="rtl"] .social-row {
     direction: rtl;
 }
 
 /* Hero */
-html[dir="ar"] .hero-title,
-html[dir="ar"] .hero-subtitle {
+html[dir="rtl"] .hero-title,
+html[dir="rtl"] .hero-subtitle {
     text-align: center;
 }
 
 /* About */
-html[dir="ar"] .about-text p { text-align: right; }
+html[dir="rtl"] .about-text p { text-align: right; }
 
 /* Sections parity */
-html[dir="ar"] .services-grid,
-html[dir="ar"] .pillars-grid,
-html[dir="ar"] .process-grid,
-html[dir="ar"] .guarantees-grid,
-html[dir="ar"] .stats-grid {
+html[dir="rtl"] .services-grid,
+html[dir="rtl"] .pillars-grid,
+html[dir="rtl"] .process-grid,
+html[dir="rtl"] .guarantees-grid,
+html[dir="rtl"] .stats-grid {
     direction: rtl;
 }
 
-html[dir="ar"] .stat { border-left: none; border-right: 1px solid var(--line); }
-html[dir="ar"] .stat:last-child { border-right: none; }
+html[dir="rtl"] .stat { border-left: none; border-right: 1px solid var(--line); }
+html[dir="rtl"] .stat:last-child { border-right: none; }
 
 /* Contact form */
-html[dir="ar"] .contact-form { direction: rtl; }
-html[dir="ar"] .contact-form input,
-html[dir="ar"] .contact-form textarea {
+html[dir="rtl"] .contact-form { direction: rtl; }
+html[dir="rtl"] .contact-form input,
+html[dir="rtl"] .contact-form textarea {
     text-align: right;
 }
 
 /* FAQ */
-html[dir="ar"] .faq-q { text-align: right; }
-html[dir="ar"] .faq-a p { text-align: right; }
+html[dir="rtl"] .faq-q { text-align: right; }
+html[dir="rtl"] .faq-a p { text-align: right; }
 
 /* Footer */
-html[dir="ar"] .footer-content { direction: rtl; }
+html[dir="rtl"] .footer-content { direction: rtl; }
 
 /* Floating elements */
-html[dir="ar"] .floating-whatsapp { right: auto; left: 22px; }
-html[dir="ar"] .scroll-top { left: auto; right: 22px; }
+html[dir="rtl"] .floating-whatsapp { right: auto; left: 22px; }
+html[dir="rtl"] .scroll-top { left: auto; right: 22px; }
 
 /* Language selector keeps left position for Arabic mirroring */
-html[dir="ar"] .navbar .nav-actions {
+html[dir="rtl"] .navbar .nav-actions {
     direction: rtl;
 }
 
 /* Mobile drawer slides from the left in RTL */
 @media (max-width: 1024px) {
-    html[dir="ar"] .mobile-nav { right: auto; left: -320px; border-left: none; border-right: 1px solid rgba(255,255,255,0.08); }
-    html[dir="ar"] .mobile-nav.open { left: 0; }
+    html[dir="rtl"] .mobile-nav { right: auto; left: -320px; border-left: none; border-right: 1px solid rgba(255,255,255,0.08); }
+    html[dir="rtl"] .mobile-nav.open { left: 0; }
 }
