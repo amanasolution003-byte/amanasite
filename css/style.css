@@ -468,14 +468,7 @@ html[lang="ar"] .logo-text, html[lang="ar"] .btn {
     grid-template-columns: repeat(4, 1fr);
     overflow: hidden;
 }
-.stat {
-    padding: 1.8rem 1.2rem;
-    text-align: center;
-    border-left: 1px solid var(--line);
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
+
 .stat:first-child { border-left: none; }
 .stat-number {
     font-family: var(--font-head);
